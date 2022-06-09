@@ -108,10 +108,6 @@ eğreltiOtu = ÇiçeksizBitkiler("Eğrelti Otu", 1)
 suYosunu = ÇiçeksizBitkiler("Su Yosunu", 1)
 liken = ÇiçeksizBitkiler("Liken", 1)
 
-
-eğreltiOtu.bilgileriniYazdır()
-max.bilgileriniYazdır()
-
 hayvanlar = [boncuk, max, doru, denizYıldızı, ahtapot]
 bitkiler = [lale, menekşe, eğreltiOtu, suYosunu, liken]
 
