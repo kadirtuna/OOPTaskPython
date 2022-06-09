@@ -9,7 +9,8 @@ class Canlılar():
         self.ölüm = ölüm
 
     def bilgileriniYazdır(self):
-        print(f"{self.ad} türünden bu canlının özellikleri şunlardır;\nSınıfı : {self.sınıf}\nHareket Kabiliyeti : {self.hareketKabiliyeti}\nBeslenme şekli : {self.beslenme}\nSolunum Şekli : {self.solunum}\nÜreme Şekli : {self.üreme}\nÖlüm Yaşı : {self.ölüm}\n\n")
+        print(
+            f"{self.ad} türünden bu canlının özellikleri şunlardır;\nSınıfı : {self.sınıf}\nHareket Kabiliyeti : {self.hareketKabiliyeti}\nBeslenme şekli : {self.beslenme}\nSolunum Şekli : {self.solunum}\nÜreme Şekli : {self.üreme}\nOrtalama Ölüm Yaşı : {self.ölüm}\n\n")
 
 
 class Hayvanlar(Canlılar):
@@ -19,7 +20,7 @@ class Hayvanlar(Canlılar):
     def __init__(self, tür, beslenme, solunum, üreme, ölüm):
         Hayvanlar.beslenmeControl(self, beslenme)
         Hayvanlar.solunumControl(self, solunum)
-        super().__init__(tür,  Hayvanlar.sınıf, Hayvanlar.hareketKabiliyeti, beslenme, solunum, üreme, ölüm)
+        super().__init__(tür, Hayvanlar.sınıf, Hayvanlar.hareketKabiliyeti, beslenme, solunum, üreme, ölüm)
 
     def beslenmeControl(self, beslenme):
         while 1:
@@ -30,27 +31,30 @@ class Hayvanlar(Canlılar):
             elif beslenme == "Hepçil":
                 break
             else:
-                beslenme = input(f"Beslenmeyi \"{beslenme}\" olarak girdin.\nBir canlının beslenme şekli sadece \"Etçil\", \"Otçul\"veya \"Hepçil\" olabilir. Beslenme şeklini tekrar giriniz : ")
+                beslenme = input(
+                    f"Beslenmeyi \"{beslenme}\" olarak girdin.\nBir canlının beslenme şekli sadece \"Etçil\", \"Otçul\"veya \"Hepçil\" olabilir. Beslenme şeklini tekrar giriniz : ")
 
     def solunumControl(self, solunum):
         solunumCesitleri = ["Deri", "Solungaç", "Trake", "Akciğer"]
-        if solunum in solunumCesitleri:
-            pass
-        else:
-            print(f"Solunum \"{solunum}\" olarak girdin.\nBir canlının solunum şekli sadece")
-            for index, i in enumerate(solunumCesitleri):
-                print(f"#{index + 1} - {i}")
-            solunum = input("olabilir. Solunum şeklini tekrar harflerle yazarak giriniz : ")
+        while 1:
+            if solunum in solunumCesitleri:
+                break
+            else:
+                print(f"Solunum \"{solunum}\" olarak girdin.\nBir canlının solunum şekli sadece")
+                for index, i in enumerate(solunumCesitleri):
+                    print(f"#{index + 1} - {i}")
+                solunum = input("olabilir. Solunum şeklini tekrar harflerle yazarak giriniz : ")
 
     def üremeControl(self, üreme):
         üremeCesitleri = ["Eşeyli", "Eşeysiz"]
-        if üreme in üremeCesitleri:
-            pass
-        else:
-            print(f"Üreme'yi \"{üreme}\" olarak girdin.\nBir canlının üreme şekli sadece")
-            for index, i in enumerate(üremeCesitleri):
-                print(f"#{index + 1} - {i}")
-            üreme = input("olabilir. Üreme şeklini tekrar harflerle yazarak giriniz : ")
+        while 1:
+            if üreme in üremeCesitleri:
+                break
+            else:
+                print(f"Üreme'yi \"{üreme}\" olarak girdin.\nBir canlının üreme şekli sadece")
+                for index, i in enumerate(üremeCesitleri):
+                    print(f"#{index + 1} - {i}")
+                üreme = input("olabilir. Üreme şeklini tekrar harflerle yazarak giriniz : ")
 
 
 class Bitkiler(Canlılar):
@@ -61,12 +65,14 @@ class Bitkiler(Canlılar):
 
     def __init__(self, tür, üreme, ölüm):
         Bitkiler.üremeControl(self, üreme)
-        super().__init__(tür, Bitkiler.sınıf, Bitkiler.hareketKabiliyeti, Bitkiler.beslenme, Bitkiler.solunum, üreme, ölüm)
+        super().__init__(tür, Bitkiler.sınıf, Bitkiler.hareketKabiliyeti, Bitkiler.beslenme, Bitkiler.solunum, üreme,
+                         ölüm)
 
     def üremeControl(self, üreme):
-            üremeCesitleri = ["Vejetatif", "Sporla", "Bölünerek", "Tomurcuklanarak", "Yenilenerek"]
+        üremeCesitleri = ["Vejetatif", "Sporla", "Bölünerek", "Tomurcuklanarak", "Yenilenerek"]
+        while 1:
             if üreme in üremeCesitleri:
-                pass
+                break
             else:
                 print(f"Üreme'yi \"{üreme}\" olarak girdin.\nBir canlının üreme şekli sadece")
                 for index, i in enumerate(üremeCesitleri):
@@ -93,6 +99,7 @@ class ÇiçekliBitkiler(Bitkiler):  # Hayvanlar sınıfından Omurgalı Hayvanla
 
 class ÇiçeksizBitkiler(Bitkiler):  # Hayvanlar sınıfından Omurgasız Hayvanlar alt sınıfı
     üreme = "Sporla"
+
     def __init__(self, tür, ölüm):
         super().__init__(tür, ÇiçeksizBitkiler.üreme, ölüm)
 
@@ -110,7 +117,6 @@ liken = ÇiçeksizBitkiler("Liken", 1)
 
 hayvanlar = [boncuk, max, doru, denizYıldızı, ahtapot]
 bitkiler = [lale, menekşe, eğreltiOtu, suYosunu, liken]
-
 
 for index, hayvan in enumerate(hayvanlar):
     print(f"{index + 1}. Hayvan;")
