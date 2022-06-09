@@ -2,7 +2,7 @@ class Canlılar():
     def __init__(self, ad, sınıf, hareketKabiliyeti, beslenme, solunum, üreme, ölüm):
         self.ad = ad
         self.sınıf = sınıf
-        self.hareketKabiliyeti = hareketKabiliyeti
+        self.hareketKabiliyeti = "Var" if hareketKabiliyeti == True else "Yok"
         self.beslenme = beslenme
         self.solunum = solunum
         self.üreme = üreme
@@ -114,3 +114,12 @@ max.bilgileriniYazdır()
 
 hayvanlar = [boncuk, max, doru, denizYıldızı, ahtapot]
 bitkiler = [lale, menekşe, eğreltiOtu, suYosunu, liken]
+
+
+for index, hayvan in enumerate(hayvanlar):
+    print(f"{index}. Hayvan;")
+    hayvan.bilgileriniYazdır()
+
+for index, bitki in enumerate(bitkiler):
+    print(f"{index}. Bitki;")
+    bitki.bilgileriniYazdır()
