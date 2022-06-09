@@ -117,9 +117,9 @@ bitkiler = [lale, menekşe, eğreltiOtu, suYosunu, liken]
 
 
 for index, hayvan in enumerate(hayvanlar):
-    print(f"{index}. Hayvan;")
+    print(f"{index + 1}. Hayvan;")
     hayvan.bilgileriniYazdır()
 
 for index, bitki in enumerate(bitkiler):
-    print(f"{index}. Bitki;")
+    print(f"{index + 1}. Bitki;")
     bitki.bilgileriniYazdır()
